@@ -8,7 +8,7 @@ A comprehensive, real-time clickjacking detection system that combines browser e
 **Technology Stack**: JavaScript (Browser Extension), Python (ML Backend), Flask (API Server)  
 **ML Algorithm**: Random Forest Classifier (100 decision trees)  
 **Detection Accuracy**: 99.5%  
-**Dataset Size**: 10,000 synthetic samples with realistic patterns
+**Dataset Size**: 10,000 synthetic samples with realistic patterns.
 
 ---
 
