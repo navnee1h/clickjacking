@@ -1,0 +1,12 @@
+2026-01-08 20:23:34,https://www.google.com/,suspicious,66.78%,Detected 1 invisible iframes
+2026-01-08 20:23:45,https://www.google.com/,suspicious,66.78%,Detected 1 invisible iframes
+2026-01-08 20:23:51,https://www.google.com/,suspicious,66.78%,Detected 1 invisible iframes
+2026-01-08 20:24:43,file:///home/navnee1h/Documents/Antigravity/clickjacking/test_attack.html,clickjacking,92.95%,Detected 3 invisible iframes | Large iframes detected covering the viewport | High z-index elements detected
+2026-01-08 20:24:49,file:///home/navnee1h/Documents/Antigravity/clickjacking/test_attack.html,clickjacking,95.65%,Detected 3 invisible iframes | Large iframes detected covering the viewport | High z-index elements detected | Suspicious click behavior detected (coordinate mismatch)
+2026-01-14 12:29:41,file:///home/navnee1h/Music/clickjacking/test_attack.html,clickjacking,84.09%,Detected 3 invisible iframes | Large iframes detected covering the viewport | High z-index elements detected
+2026-01-14 12:29:58,file:///home/navnee1h/Music/clickjacking/test_attack.html,clickjacking,93.00%,Detected 3 invisible iframes | Large iframes detected covering the viewport | High z-index elements detected | Suspicious click behavior detected (coordinate mismatch)
+2026-01-14 12:49:14,file:///home/navnee1h/Music/clickjacking/test_attack.html,suspicious,59.00%,Detected 3 invisible iframes | Large iframes detected covering the viewport | High z-index elements detected
+2026-01-14 12:50:16,https://jobsiri.in/,suspicious,66.00%,Detected 4 invisible iframes
+2026-01-14 12:50:21,https://jobsiri.in/,suspicious,66.00%,Detected 3 invisible iframes
+2026-01-14 12:51:50,file:///home/navnee1h/Music/clickjacking/test_attack.html,suspicious,59.00%,Detected 3 invisible iframes | Large iframes detected covering the viewport | High z-index elements detected
+2026-01-14 12:51:57,file:///home/navnee1h/Music/clickjacking/test_attack.html,clickjacking,55.00%,Detected 3 invisible iframes | Large iframes detected covering the viewport | High z-index elements detected | Suspicious click behavior detected (coordinate mismatch)

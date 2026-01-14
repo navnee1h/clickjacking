@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-soft: #eff6ff;
+            --bg: #ffffff;
+            --surface: #f9fafb;
+            --text-strong: #111827;
+            --text-base: #374151;
+            --text-muted: #6b7280;
+            --border: #f3f4f6;
+            --safe: #059669;
+            --safe-bg: #ecfdf5;
+            --warn: #d97706;
+            --warn-bg: #fffbeb;
+            --danger: #dc2626;
+            --danger-bg: #fef2f2;
+        }
+
+        body {
+            width: 320px;
+            font-family: 'Outfit', sans-serif;
+            background-color: #ffffff;
+            color: var(--text-base);
+            margin: 0;
+            padding: 24px;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.4s ease;
+        }
+
+        /* Dynamic Background Modes */
+        body.clickjacking {
+            background-color: #ffffff;
+        }
+
+        body.suspicious {
+            background-color: #ffffff;
+        }
+
+        body.good {
+            background-color: #f0fdf4;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 28px;
+        }
+
+        .identity {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .mark {
+            width: 32px;
+            height: 32px;
+            background: var(--text-strong);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .identity-text {
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: var(--text-strong);
+        }
+
+        .status-pill {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .status-pill.good {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+
+        .status-pill.suspicious {
+            background: #fef9c3;
+            color: #ca8a04;
+        }
+
+        .status-pill.clickjacking {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .analysis-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .card-label {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .card-value {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+
+        /* Dynamic Text Colors */
+        .card-value.good {
+            color: #16a34a;
+        }
+
+        .card-value.suspicious {
+            color: #ca8a04;
+        }
+
+        .card-value.clickjacking {
+            color: #dc2626;
+        }
+
+        .conf-tag {
+            font-size: 11px;
+            color: var(--text-muted);
+            background: #fff;
+            border: 1px solid var(--border);
+            padding: 2px 8px;
+            border-radius: 6px;
+            display: inline-block;
+        }
+
+        .findings-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+        }
+
+        .findings-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .finding-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 13px;
+            color: var(--text-base);
+            padding: 10px 14px;
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+            animation: fadeInScale 0.4s ease-out forwards;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .finding-row:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-color: #2563eb;
+        }
+
+        .finding-row:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .finding-row:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .finding-row:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .finding-row:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .footer-info {
+            margin-top: 32px;
+            font-size: 10px;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .active-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--safe);
+            border-radius: 50%;
+            box-shadow: 0 0 4px var(--safe);
+        }
+
+        #loading {
+            padding: 60px 0;
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        .loader {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--border);
+            border-top-color: var(--text-strong);
+            border-radius: 50%;
+            animation: spin 0.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="identity">
+            <div class="mark">A</div>
+            <div class="identity-text">Analysis</div>
+        </div>
+        <div id="status-badge" class="status-pill">Active</div>
+    </div>
+
+    <div id="loading">
+        <div class="loader"></div>
+        <div style="font-size: 13px; font-weight: 500;">Validating integrity...</div>
+    </div>
+
+    <div id="content" style="display: none;">
+        <div class="analysis-card">
+            <div class="card-label">Threat Probability</div>
+            <div id="result-text" class="card-value">Checking</div>
+            <div class="conf-tag">Confidence: <span id="confidence-val">0%</span></div>
+        </div>
+
+        <div class="findings-title">Core Indicators</div>
+        <div id="reasons-list" class="findings-list">
+            <!-- Reasons injected here -->
+        </div>
+    </div>
+
+    <div class="footer-info">
+        <div style="display: flex; align-items: center; gap: 6px;">
+            <div class="active-dot"></div>
+            <span>Engine Core 1.2.0</span>
+        </div>
+        <span>Encrypted Tunnel</span>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>
