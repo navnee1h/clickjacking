@@ -3,308 +3,267 @@
 
 <head>
     <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         :root {
-            --primary: #2563eb;
-            --primary-soft: #eff6ff;
             --bg: #ffffff;
-            --surface: #f9fafb;
-            --text-strong: #111827;
-            --text-base: #374151;
-            --text-muted: #6b7280;
-            --border: #f3f4f6;
-            --safe: #059669;
-            --safe-bg: #ecfdf5;
-            --warn: #d97706;
-            --warn-bg: #fffbeb;
-            --danger: #dc2626;
-            --danger-bg: #fef2f2;
+            --surface: #fafafa;
+            --border: #eeeeee;
+            --primary: #000000;
+            --text-main: #222222;
+            --text-secondary: #777777;
+            --safe: #2ecc71;
+            --warn: #f1c40f;
+            --danger: #e74c3c;
         }
 
         body {
             width: 320px;
-            font-family: 'Outfit', sans-serif;
-            background-color: #ffffff;
-            color: var(--text-base);
-            margin: 0;
-            padding: 24px;
-            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
             -webkit-font-smoothing: antialiased;
-            transition: background-color 0.4s ease;
         }
 
-        /* Dynamic Background Modes */
-        body.clickjacking {
-            background-color: #ffffff;
-        }
-
-        body.suspicious {
-            background-color: #ffffff;
-        }
-
-        body.good {
-            background-color: #f0fdf4;
+        .container {
+            padding: 24px;
         }
 
         .header {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            margin-bottom: 28px;
+            justify-content: center;
+            margin-bottom: 32px;
         }
 
-        .identity {
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        /* Result Section */
+        .result-stage {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+            background: var(--border);
+        }
+
+        .status-dot.good {
+            background: var(--safe);
+        }
+
+        .status-dot.suspicious {
+            background: var(--warn);
+        }
+
+        .status-dot.clickjacking {
+            background: var(--danger);
+        }
+
+        .status-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .prediction-value {
+            font-size: 36px;
+            font-weight: 600;
+            margin: 8px 0;
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+
+        .confidence {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Info Grid */
+        .info-section {
+            border-top: 1px solid var(--border);
+            padding-top: 24px;
+        }
+
+        .reason-box {
             display: flex;
-            align-items: center;
+            flex-direction: column;
             gap: 12px;
         }
 
-        .mark {
-            width: 32px;
-            height: 32px;
-            background: var(--text-strong);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 14px;
+        .reason-item {
+            font-size: 13px;
+            color: var(--text-main);
+            line-height: 1.5;
+            padding-left: 18px;
+            position: relative;
         }
 
-        .identity-text {
-            font-size: 16px;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-            color: var(--text-strong);
+        .reason-item::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--border);
         }
 
-        .status-pill {
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-
-        .status-pill.good {
-            background: #dcfce7;
-            color: #16a34a;
-        }
-
-        .status-pill.suspicious {
-            background: #fef9c3;
-            color: #ca8a04;
-        }
-
-        .status-pill.clickjacking {
-            background: #fee2e2;
-            color: #dc2626;
-        }
-
-        .analysis-card {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 24px;
-            text-align: center;
-            margin-bottom: 24px;
+        /* Whitelist Card */
+        .minimal-card {
+            margin-top: 24px;
+            padding: 16px;
+            background: var(--surface);
+            border-radius: 8px;
             border: 1px solid var(--border);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        .card-label {
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--text-muted);
+        .card-title {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
             margin-bottom: 8px;
         }
 
-        .card-value {
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 6px;
-            letter-spacing: -0.02em;
-        }
-
-        /* Dynamic Text Colors */
-        .card-value.good {
-            color: #16a34a;
-        }
-
-        .card-value.suspicious {
-            color: #ca8a04;
-        }
-
-        .card-value.clickjacking {
-            color: #dc2626;
-        }
-
-        .conf-tag {
-            font-size: 11px;
-            color: var(--text-muted);
-            background: #fff;
-            border: 1px solid var(--border);
-            padding: 2px 8px;
-            border-radius: 6px;
-            display: inline-block;
-        }
-
-        .findings-title {
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
+        .domain-display {
+            font-size: 12px;
+            word-break: break-all;
             margin-bottom: 12px;
+            color: var(--text-main);
         }
 
-        .findings-list {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .finding-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 13px;
-            color: var(--text-base);
-            padding: 10px 14px;
-            background: #ffffff;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            transition: all 0.2s ease;
-            animation: fadeInScale 0.4s ease-out forwards;
-            opacity: 0;
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
             cursor: pointer;
-        }
-
-        .finding-row:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            border-color: #2563eb;
-        }
-
-        .finding-row:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-
-        .finding-row:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .finding-row:nth-child(3) {
-            animation-delay: 0.3s;
-        }
-
-        .finding-row:nth-child(4) {
-            animation-delay: 0.4s;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(30px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeInScale {
-            from {
-                transform: scale(0.9);
-                opacity: 0;
-            }
-
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        .footer-info {
-            margin-top: 32px;
-            font-size: 10px;
-            color: var(--text-muted);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .active-dot {
-            width: 4px;
-            height: 4px;
-            background: var(--safe);
-            border-radius: 50%;
-            box-shadow: 0 0 4px var(--safe);
-        }
-
-        #loading {
-            padding: 60px 0;
+            transition: opacity 0.2s;
             text-align: center;
-            color: var(--text-muted);
+        }
+
+        .btn-trust {
+            background: #000;
+            color: #fff;
+        }
+
+        .btn-remove {
+            background: #fff;
+            color: #000;
+            border: 1px solid #000;
+        }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        /* Helpers */
+        .hidden {
+            display: none !important;
         }
 
         .loader {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--border);
-            border-top-color: var(--text-strong);
-            border-radius: 50%;
-            animation: spin 0.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-            margin: 0 auto 16px;
+            height: 1px;
+            width: 100%;
+            background: var(--border);
+            position: relative;
+            overflow: hidden;
+            margin: 40px 0;
         }
 
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
+        .loader::after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 30%;
+            background: var(--primary);
+            left: -30%;
+            animation: move 1.5s infinite linear;
+        }
+
+        @keyframes move {
+            from {
+                left: -30%;
             }
+
+            to {
+                left: 100%;
+            }
+        }
+
+        .footer {
+            margin-top: 32px;
+            text-align: center;
+            font-size: 10px;
+            color: var(--text-secondary);
         }
     </style>
 </head>
 
 <body>
-    <div class="header">
-        <div class="identity">
-            <div class="mark">A</div>
-            <div class="identity-text">Analysis</div>
-        </div>
-        <div id="status-badge" class="status-pill">Active</div>
-    </div>
-
-    <div id="loading">
-        <div class="loader"></div>
-        <div style="font-size: 13px; font-weight: 500;">Validating integrity...</div>
-    </div>
-
-    <div id="content" style="display: none;">
-        <div class="analysis-card">
-            <div class="card-label">Threat Probability</div>
-            <div id="result-text" class="card-value">Checking</div>
-            <div class="conf-tag">Confidence: <span id="confidence-val">0%</span></div>
+    <div class="container">
+        <div class="header">
+            <h1 class="logo">Shield</h1>
         </div>
 
-        <div class="findings-title">Core Indicators</div>
-        <div id="reasons-list" class="findings-list">
-            <!-- Reasons injected here -->
+        <div id="loading">
+            <div class="loader"></div>
+            <p style="text-align: center; font-size: 12px; color: var(--text-secondary);">Analyzing resource
+                integrity...</p>
+        </div>
+
+        <div id="content" class="hidden">
+            <div class="result-stage">
+                <div class="status-box">
+                    <span id="status-dot" class="status-dot"></span>
+                    <span id="status-badge" class="status-text">Scanning</span>
+                </div>
+                <h2 id="threat-value" class="prediction-value">Safe</h2>
+                <p class="confidence">Confidence <span id="confidence-val">0%</span></p>
+            </div>
+
+            <div class="info-section">
+                <div id="indicators-list" class="reason-box">
+                    <!-- Reasons injected here -->
+                </div>
+            </div>
+
+            <div id="whitelist-section" class="hidden">
+                <div class="minimal-card">
+                    <h3 class="card-title">Site Trust</h3>
+                    <p id="whitelist-domain" class="domain-display"></p>
+                    <button id="action-btn" class="btn hidden">Action</button>
+                    <p id="whitelist-label" style="font-size: 11px; margin-top: 8px; color: var(--text-secondary);"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <span>&copy; 2026 Core Analytics Engine</span>
         </div>
     </div>
 
-    <div class="footer-info">
-        <div style="display: flex; align-items: center; gap: 6px;">
-            <div class="active-dot"></div>
-            <span>Engine Core 1.2.0</span>
-        </div>
-        <span>Encrypted Tunnel</span>
-    </div>
-
+    <script src="whitelist.js"></script>
     <script src="popup.js"></script>
 </body>
 

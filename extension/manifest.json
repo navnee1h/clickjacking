@@ -10,6 +10,7 @@
     ],
     "host_permissions": [
         "http://localhost:5000/*",
+        "http://127.0.0.1:5000/*",
         "<all_urls>"
     ],
     "action": {
@@ -29,7 +30,12 @@
                 "<all_urls>"
             ],
             "js": [
-                "content.js"
+                "whitelist.js",
+                "content.js",
+                "alert_ui.js"
+            ],
+            "css": [
+                "alert_ui.css"
             ]
         }
     ],

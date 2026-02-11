@@ -1,0 +1,138 @@
+/* 
+ * Alert UI Style - Aesthetic Minimalist 
+ */
+
+/* 1. The Ghost Blur Effect */
+#shield-blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(30px) brightness(1.05);
+    -webkit-backdrop-filter: blur(30px) brightness(1.05);
+    z-index: 2147483645;
+    pointer-events: all;
+    cursor: not-allowed;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+#shield-blur-overlay.active {
+    opacity: 1;
+}
+
+/* 2. Top-Bar Dropdown Banner */
+#shield-top-banner {
+    position: fixed;
+    top: -160px;
+    /* Increased to account for larger height */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1000px;
+    /* Increased from 480px */
+    background: #ffffff;
+    border: 1px solid #eeeeee;
+    border-top: none;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    z-index: 2147483647;
+    padding: 24px 40px;
+    /* Increased padding */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Inter', -apple-system, sans-serif;
+    transition: top 0.7s cubic-bezier(0.2, 1, 0.3, 1);
+    box-sizing: border-box;
+}
+
+#shield-top-banner.active {
+    top: 0;
+}
+
+/* Typography & Layout */
+.shield-info-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* Increased gap */
+}
+
+.shield-icon {
+    font-size: 36px;
+    /* Increased icon size */
+    line-height: 1;
+}
+
+.shield-text-stack {
+    display: flex;
+    flex-direction: column;
+}
+
+.shield-title {
+    font-weight: 600;
+    font-size: 16px;
+    /* Increased font size */
+    color: #000;
+}
+
+.shield-subtitle {
+    font-size: 13px;
+    /* Increased font size */
+    color: #777;
+    margin-top: 4px;
+}
+
+/* Buttons */
+.shield-action-group {
+    display: flex;
+    gap: 12px;
+    /* Increased gap */
+}
+
+.shield-btn {
+    padding: 10px 20px;
+    /* Larger buttons */
+    border-radius: 8px;
+    font-size: 13px;
+    /* Larger font */
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    font-family: inherit;
+    white-space: nowrap;
+}
+
+.shield-btn-black {
+    background: #000;
+    color: #fff;
+}
+
+.shield-btn-black:hover {
+    background: #333;
+}
+
+.shield-btn-trust {
+    background: #f0f0f0;
+    color: #000;
+    border: 1px solid #ddd;
+}
+
+.shield-btn-trust:hover {
+    background: #e5e5e5;
+    border-color: #ccc;
+}
+
+.shield-btn-ghost {
+    background: none;
+    border: 1px solid transparent;
+    color: #999;
+}
+
+.shield-btn-ghost:hover {
+    color: #444;
+}

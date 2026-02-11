@@ -10,3 +10,8 @@
 2026-01-14 12:50:21,https://jobsiri.in/,suspicious,66.00%,Detected 3 invisible iframes
 2026-01-14 12:51:50,file:///home/navnee1h/Music/clickjacking/test_attack.html,suspicious,59.00%,Detected 3 invisible iframes | Large iframes detected covering the viewport | High z-index elements detected
 2026-01-14 12:51:57,file:///home/navnee1h/Music/clickjacking/test_attack.html,clickjacking,55.00%,Detected 3 invisible iframes | Large iframes detected covering the viewport | High z-index elements detected | Suspicious click behavior detected (coordinate mismatch)
+2026-02-11 11:26:43,https://www.getsafeonline.org/checkawebsite/,clickjacking,45.00%,Detected 1 invisible iframes | Detected 1 iframes from untrusted domains
+2026-02-11 11:26:54,https://www.getsafeonline.org/checkawebsite/,clickjacking,45.00%,Detected 1 invisible iframes | Detected 1 iframes from untrusted domains
+2026-02-11 11:27:21,https://www.google.com/search?q=jobhunt&oq=jobhunt&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDE0MjlqMGo0qAIAsAIB&sourceid=chrome&ie=UTF-8&jbr=sep:0&zx=1770789440369&no_sw_cr=1,suspicious,93.40%,Detected 3 invisible iframes | High z-index elements detected
+2026-02-11 11:27:30,https://www.google.com/search?q=jobhunt&oq=jobhunt&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDE0MjlqMGo0qAIAsAIB&sourceid=chrome&ie=UTF-8&jbr=sep:0&zx=1770789440369&no_sw_cr=1,suspicious,94.41%,Detected 4 invisible iframes | High z-index elements detected
+2026-02-11 11:27:38,https://www.google.com/search?q=jobhunt&oq=jobhunt&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDE0MjlqMGo0qAIAsAIB&sourceid=chrome&ie=UTF-8&jbr=sep:0&zx=1770789440369&no_sw_cr=1,suspicious,94.41%,Detected 4 invisible iframes | High z-index elements detected

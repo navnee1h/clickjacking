@@ -47,41 +47,84 @@ def predict():
         confidence = float(np.max(probabilities))
         
         pred_label = CLASS_NAMES[prediction]
-        # For Logistic Regression, we can look at the coefficients
-        # But for simplicity in a 3-class model, we'll just report the values that are high
+        
+        # Generate reasons based on feature analysis
         reasons = []
-        if data.get('invisible_count', 0) > 0:
+        feature_details = []  # For ML-based reasoning
+        
+        # Check individual features with lower thresholds for warnings
+        if data.get('invisible_count', 0) > 2:
             reasons.append(f"Detected {data['invisible_count']} invisible iframes")
+        elif data.get('invisible_count', 0) > 0 and pred_label != 'good':
+            feature_details.append(f"{data['invisible_count']} invisible iframe(s)")
+            
         if data.get('large_iframe_count', 0) > 0:
             reasons.append("Large iframes detected covering the viewport")
-        if data.get('z_index_high_count', 0) > 0:
+            
+        if data.get('z_index_high_count', 0) > 2:
             reasons.append("High z-index elements detected")
+        elif data.get('z_index_high_count', 0) > 0 and pred_label != 'good':
+            feature_details.append(f"{data['z_index_high_count']} high z-index element(s)")
+            
         if data.get('click_mismatch', 0) == 1:
             reasons.append("Suspicious click behavior detected (coordinate mismatch)")
-        if data.get('untrusted_iframe_count', 0) > 0:
+            
+        if data.get('untrusted_iframe_count', 0) > 1:
             reasons.append(f"Detected {data['untrusted_iframe_count']} iframes from untrusted domains")
+        elif data.get('untrusted_iframe_count', 0) == 1:
+            if data.get('invisible_count', 0) > 3:
+                reasons.append(f"Detected {data['untrusted_iframe_count']} iframe from untrusted domain")
+            elif pred_label != 'good':
+                feature_details.append(f"{data['untrusted_iframe_count']} untrusted iframe")
         
+        if data.get('pointer_events_none_count', 0) > 0 and pred_label != 'good':
+            feature_details.append(f"{data['pointer_events_none_count']} iframe(s) with disabled pointer events")
         
-        # Override classification ONLY for extreme attack patterns
-        # Let the ML model handle normal cases (e.g., Google with 1 invisible iframe)
-        # Only override if we see MULTIPLE strong indicators together
-        if (data.get('invisible_count', 0) > 5 and 
-            data.get('large_iframe_count', 0) > 2 and 
-            data.get('click_mismatch', 0) == 1):
-            # Very high confidence attack: Many invisible + large iframes + click mismatch
-            pred_label = "clickjacking"
-            confidence = 0.99
-            reasons.append("OVERRIDE: Extreme attack pattern detected")
-        elif (data.get('invisible_count', 0) > 8 and 
-              data.get('z_index_high_count', 0) > 5):
-            # Stealthy multi-iframe attack
-            pred_label = "clickjacking"
-            confidence = 0.95
-            reasons.append("OVERRIDE: Multi-iframe layering attack detected")
+        # === WHITELIST-BASED FALSE POSITIVE REDUCTION ===
+        is_whitelisted = data.get('parent_domain_whitelisted', 0) == 1
+        
+        if is_whitelisted:
+            # If user explicitly whitelisted, we downgrade almost everything to "good"
+            # unless it's an extreme override pattern (checked below)
+            if pred_label in ["suspicious", "clickjacking"]:
+                original_pred = pred_label
+                pred_label = "good"
+                confidence = 0.95
+                reasons = [f"Domain is trusted by user (Whitelisted)"]
+                print(f"  → Whitelisted domain: downgraded {original_pred} to good")
+        
+        # Override classification ONLY for extreme attack patterns (even if whitelisted, be cautious)
+        # But for whitelisted ones, we keep them as good unless they are truly malicious
+        if not is_whitelisted:
+            if (data.get('invisible_count', 0) > 5 and 
+                data.get('large_iframe_count', 0) > 2 and 
+                data.get('click_mismatch', 0) == 1):
+                pred_label = "clickjacking"
+                confidence = 0.99
+                reasons.append("OVERRIDE: Extreme attack pattern detected")
+            elif (data.get('invisible_count', 0) > 8 and 
+                  data.get('z_index_high_count', 0) > 5):
+                pred_label = "clickjacking"
+                confidence = 0.95
+                reasons.append("OVERRIDE: Multi-iframe layering attack detected")
 
+        # If no specific reasons but ML flagged it, provide ML-based reasoning
+        if not reasons and pred_label != 'good':
+            if feature_details:
+                # Show the features that contributed
+                reasons.append(f"ML model detected suspicious patterns: {', '.join(feature_details)}")
+            else:
+                # Generic ML reasoning based on prediction
+                if pred_label == 'suspicious':
+                    reasons.append(f"ML model flagged suspicious behavior (confidence: {confidence*100:.1f}%)")
+                    if data.get('iframe_count', 0) > 0:
+                        reasons.append(f"Page contains {data['iframe_count']} iframe(s) with borderline characteristics")
+                elif pred_label == 'clickjacking':
+                    reasons.append(f"ML model detected clickjacking patterns (confidence: {confidence*100:.1f}%)")
         
+        # If still no reasons (shouldn't happen), provide default
         if not reasons:
-            reasons.append("No common clickjacking markers identified")
+            reasons.append("No security threats detected")
 
         result = {
             "prediction": pred_label,
