@@ -15,3 +15,42 @@
 2026-02-11 11:27:21,https://www.google.com/search?q=jobhunt&oq=jobhunt&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDE0MjlqMGo0qAIAsAIB&sourceid=chrome&ie=UTF-8&jbr=sep:0&zx=1770789440369&no_sw_cr=1,suspicious,93.40%,Detected 3 invisible iframes | High z-index elements detected
 2026-02-11 11:27:30,https://www.google.com/search?q=jobhunt&oq=jobhunt&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDE0MjlqMGo0qAIAsAIB&sourceid=chrome&ie=UTF-8&jbr=sep:0&zx=1770789440369&no_sw_cr=1,suspicious,94.41%,Detected 4 invisible iframes | High z-index elements detected
 2026-02-11 11:27:38,https://www.google.com/search?q=jobhunt&oq=jobhunt&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCDE0MjlqMGo0qAIAsAIB&sourceid=chrome&ie=UTF-8&jbr=sep:0&zx=1770789440369&no_sw_cr=1,suspicious,94.41%,Detected 4 invisible iframes | High z-index elements detected
+2026-02-12 20:15:15,https://fitgirl-repacks.site/popular-repacks/,suspicious,74.09%,ML model detected suspicious patterns: 1 untrusted iframe
+2026-02-12 20:15:21,https://fitgirl-repacks.site/popular-repacks/,suspicious,74.09%,ML model detected suspicious patterns: 1 untrusted iframe
+2026-02-12 20:15:24,https://fitgirl-repacks.site/popular-repacks/,suspicious,74.09%,ML model detected suspicious patterns: 1 untrusted iframe
+2026-02-12 20:15:28,https://fitgirl-repacks.site/popular-repacks/,suspicious,74.09%,ML model detected suspicious patterns: 1 untrusted iframe
+2026-02-12 20:15:29,https://fitgirl-repacks.site/popular-repacks/,suspicious,74.09%,ML model detected suspicious patterns: 1 untrusted iframe
+2026-02-12 20:15:53,https://fitgirl-repacks.site/popular-repacks/,suspicious,74.09%,ML model detected suspicious patterns: 1 untrusted iframe
+2026-02-12 20:15:54,https://fitgirl-repacks.site/popular-repacks/,suspicious,74.09%,ML model detected suspicious patterns: 1 untrusted iframe
+2026-02-12 20:15:56,https://fitgirl-repacks.site/popular-repacks/,suspicious,74.09%,ML model detected suspicious patterns: 1 untrusted iframe
+2026-02-12 20:15:57,https://fitgirl-repacks.site/popular-repacks/,suspicious,74.09%,ML model detected suspicious patterns: 1 untrusted iframe
+2026-02-12 20:16:13,https://fitgirl-repacks.site/popular-repacks/,suspicious,74.09%,ML model detected suspicious patterns: 1 untrusted iframe
+2026-02-12 20:16:27,https://fitgirl-repacks.site/popular-repacks/,suspicious,74.09%,ML model detected suspicious patterns: 1 untrusted iframe
+2026-02-12 20:16:50,https://fitgirl-repacks.site/popular-repacks/,suspicious,74.09%,ML model detected suspicious patterns: 1 untrusted iframe
+2026-02-12 20:18:31,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,86.00%,Detected 3 invisible iframes | Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:18:36,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,86.00%,Detected 3 invisible iframes | Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:18:44,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,86.00%,Detected 3 invisible iframes | Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:18:59,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,86.00%,Detected 3 invisible iframes | Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:19:02,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,86.00%,Detected 3 invisible iframes | Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:19:21,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,86.00%,Detected 3 invisible iframes | Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:19:25,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,86.00%,Detected 3 invisible iframes | Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:21:16,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,86.00%,Detected 3 invisible iframes | Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:21:20,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,86.00%,Detected 3 invisible iframes | Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:21:33,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,83.00%,Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:21:36,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,83.00%,Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:23:56,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,83.00%,Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:23:58,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,83.00%,Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:23:59,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,83.00%,Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:24:36,https://colfaxbanking.com/,suspicious,34.00%,ML model detected suspicious patterns: 1 untrusted iframe
+2026-02-12 20:24:40,https://colfaxbanking.com/,suspicious,34.00%,ML model detected suspicious patterns: 1 untrusted iframe
+2026-02-12 20:24:41,https://colfaxbanking.com/,suspicious,34.00%,ML model detected suspicious patterns: 1 untrusted iframe
+2026-02-12 20:24:42,https://colfaxbanking.com/,suspicious,34.00%,ML model detected suspicious patterns: 1 untrusted iframe
+2026-02-12 20:25:25,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,83.00%,Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:25:28,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,83.00%,Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:26:45,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,83.00%,Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:26:48,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,83.00%,Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:28:18,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,83.00%,Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:28:29,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,83.00%,Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:28:40,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,83.00%,Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:28:50,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,83.00%,Large iframes detected covering the viewport | High z-index elements detected
+2026-02-12 20:28:53,file:///home/navnee1h/Documents/Antigravity/old/clickjacking/test_attack.html,clickjacking,83.00%,Large iframes detected covering the viewport | High z-index elements detected
