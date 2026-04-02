@@ -1,8 +1,8 @@
-# Shield: Clickjacking Detection Extension
+# Clickjacking Detection Extension
 
 ## Overview
 
-Shield is a simple browser extension developed as a quick 2-hour project for my friend’s college submission. It is designed to detect basic clickjacking attacks by analyzing iframe behavior on web pages.
+This is a simple browser extension developed as a quick 2-hour project for my friend’s college submission. It is designed to detect basic clickjacking attacks by analyzing iframe behavior on web pages.
 
 ---
 
